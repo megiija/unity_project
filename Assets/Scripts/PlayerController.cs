@@ -7,27 +7,40 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
 
     private bool isMoving;
-    private Vector2 input;
+    private Vector2 move;
+
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+
+    }
 
     private void Update()
     {
         if (!isMoving)
         {
-            input.x = Input.GetAxisRaw("Horizontal");
-            input.y = Input.GetAxisRaw("Vertical");
+            move.x = Input.GetAxisRaw("Horizontal");
+            move.y = Input.GetAxisRaw("Vertical");
 
             // remove diagonal movement
-            if (input.x != 0) input.y = 0;
+            if (move.x != 0) move.y = 0;
 
-            if (input != Vector2.zero)
+            if (move != Vector2.zero)
             {
+                animator.SetFloat("moveX", move.x);
+                animator.SetFloat("moveY", move.y);
+
                 var targetPos = transform.position;
-                targetPos.x += input.x;
-                targetPos.y += input.y;
+                targetPos.x += move.x;
+                targetPos.y += move.y;
 
                 StartCoroutine(Move(targetPos));
             }
         }
+
+        animator.SetBool("isMoving", isMoving);
     }
 
     IEnumerator Move(Vector3 targetPos)
