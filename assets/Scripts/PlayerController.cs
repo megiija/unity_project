@@ -64,6 +64,6 @@ public class PlayerController : MonoBehaviour
 
     private bool freeTile(Vector3 newPos)
     {
-        return Physics2D.OverlapCircle(newPos, 0.2f, collisionLayer) == null;
+        return Physics2D.OverlapCircle(newPos, 0.1f, collisionLayer) == null;
     } 
 }
