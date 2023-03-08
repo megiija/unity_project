@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public LayerMask collisionLayer;
+    public LayerMask grassLayer;
     public float moveSpeed;
 
     private bool isMoving;
@@ -60,10 +61,23 @@ public class PlayerController : MonoBehaviour
         transform.position = newPos;
 
         isMoving = false;
+
+        checkEncounter();
     }
 
     private bool freeTile(Vector3 newPos)
     {
         return Physics2D.OverlapCircle(newPos, 0.1f, collisionLayer) == null;
     } 
+
+    private void checkEncounter()
+    {
+        if (Physics2D.OverlapCircle(transform.position, 0.1f, grassLayer) != null)
+        {
+            //create  10% chance of wild encounter
+            if (Random.Range(1, 101) <= 15){
+                Debug.Log("encounter!");
+            }
+        }
+    }
 }
