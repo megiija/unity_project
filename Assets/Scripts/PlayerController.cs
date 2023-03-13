@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Physics2D.OverlapCircle(transform.position, 0.1f, grassLayer) != null)
         {
-            //create  10% chance of wild encounter
+            //create  15% chance of wild encounter
             if (Random.Range(1, 101) <= 15){
                 Debug.Log("encounter!");
             }
