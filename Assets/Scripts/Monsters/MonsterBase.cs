@@ -15,12 +15,21 @@ public class MonsterBase : ScriptableObject
     [SerializeField] MonsterType type1;
     [SerializeField] MonsterType type2;
 
+    [SerializeField] int level;
     [SerializeField] int maxHp;
     [SerializeField] int attack;
     [SerializeField] int defense;
     [SerializeField] int spAttack;
     [SerializeField] int spDefense;
     [SerializeField] int speed;
+
+    [SerializeField] int baseHp;
+    [SerializeField] int baseAttack;
+    [SerializeField] int baseDefense;
+    [SerializeField] int baseSpAttack;
+    [SerializeField] int baseSefense;
+    [SerializeField] int baseSpeed;
+
 }
 
 public enum MonsterType
