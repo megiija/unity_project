@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ObjectLoad : MonoBehaviour
 {
+    //Load the always active objects if theyre not on screen
+
     [SerializeField] GameObject dontDestroyPrefab;
 
     private void Awake()

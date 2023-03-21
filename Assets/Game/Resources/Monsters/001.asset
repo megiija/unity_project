@@ -14,19 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Vaporta
   description: 
-  sprite: {fileID: 21300000, guid: 7836296194ef8244496f2ad15b098853, type: 3}
+  leftSprite: {fileID: 39902462, guid: 96b535119fbdf444e80239ad15fde101, type: 3}
+  rightSprite: {fileID: -579042973, guid: 96b535119fbdf444e80239ad15fde101, type: 3}
   type1: 3
   type2: 0
-  level: 1
-  maxHp: 0
-  attack: 0
-  defense: 0
-  spAttack: 0
-  spDefense: 0
-  speed: 0
-  baseHp: 50
-  baseAttack: 70
-  baseDefense: 50
-  baseSpAttack: 50
-  baseSefense: 50
-  baseSpeed: 40
+  maxHp: 44
+  attack: 48
+  defense: 65
+  spAttack: 50
+  spDefense: 64
+  speed: 43
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 11ce04200211a974d90f143c6ea8ddb5, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: f87884d9ddaa34f49bb0570009795a2a, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: a94099039e9541c4183bd3673c72d6de, type: 2}
+    level: 3

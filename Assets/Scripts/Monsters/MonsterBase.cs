@@ -5,17 +5,19 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Monsters", menuName = "Monsters/Create new monster")]
 public class MonsterBase : ScriptableObject
 {
+
+    //Create the properties of Monsters 
     [SerializeField] string name;
 
     [TextArea]
     [SerializeField] string description;
 
-    [SerializeField] Sprite sprite;
+    [SerializeField] Sprite leftSprite;
+    [SerializeField] Sprite rightSprite;
 
     [SerializeField] MonsterType type1;
     [SerializeField] MonsterType type2;
 
-    [SerializeField] int level;
     [SerializeField] int maxHp;
     [SerializeField] int attack;
     [SerializeField] int defense;
@@ -23,12 +25,42 @@ public class MonsterBase : ScriptableObject
     [SerializeField] int spDefense;
     [SerializeField] int speed;
 
-    [SerializeField] int baseHp;
-    [SerializeField] int baseAttack;
-    [SerializeField] int baseDefense;
-    [SerializeField] int baseSpAttack;
-    [SerializeField] int baseSefense;
-    [SerializeField] int baseSpeed;
+    [SerializeField] List<LearnableMoves> learnableMoves;
+
+    //Set properties
+    public string Name => name;
+
+    public string Description => description;
+
+    public Sprite LeftSprite => leftSprite;
+    public Sprite RightSprite => rightSprite;
+
+    public int MaxHP => maxHp;
+
+    public int Attack => attack;
+
+    public int Defense => defense;
+
+    public int SpAttack => spAttack;
+
+    public int SpDefense => spDefense;
+
+    public int Speed => speed;
+
+    public List<LearnableMoves> LearnableMoves => learnableMoves;
+
+}
+
+[System.Serializable]
+
+//Teach moves respective to level
+public class LearnableMoves
+{
+    [SerializeField] MoveBase moveBase;
+    [SerializeField] int level;
+
+    public MoveBase Base => moveBase;
+    public int Level => level;
 
 }
 
