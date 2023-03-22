@@ -626,13 +626,13 @@ MonoBehaviour:
   moveSelect: {fileID: 1538609375}
   moveInfo: {fileID: 209137062}
   actionText:
-  - {fileID: 0}
+  - {fileID: 376333425}
   - {fileID: 1850845144}
   moveText:
   - {fileID: 848610763}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 154558754}
+  - {fileID: 1167660732}
+  - {fileID: 728722193}
   ppText: {fileID: 1446683854}
   typeText: {fileID: 1276919683}
 --- !u!1 &239803530
@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -1383309450, guid: 5c0fa8ee7e7dd3448a0e72a15223444d, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: -1383309450, guid: 5c0fa8ee7e7dd3448a0e72a15223444d, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1125,7 +1125,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 392729718}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 749503944}
+        m_TargetAssemblyTypeName: BattleSys, Assembly-CSharp
+        m_MethodName: PlayerAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &392729718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1235,7 +1247,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -1383309450, guid: 5c0fa8ee7e7dd3448a0e72a15223444d, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: -1383309450, guid: 5c0fa8ee7e7dd3448a0e72a15223444d, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1247,7 +1259,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 449412441}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 749503944}
+        m_TargetAssemblyTypeName: BattleSys, Assembly-CSharp
+        m_MethodName: PlayerAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &449412441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1357,7 +1381,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -1383309450, guid: 5c0fa8ee7e7dd3448a0e72a15223444d, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: -1383309450, guid: 5c0fa8ee7e7dd3448a0e72a15223444d, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1369,7 +1393,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 471988644}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 749503944}
+        m_TargetAssemblyTypeName: BattleSys, Assembly-CSharp
+        m_MethodName: PlayerAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &471988644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1686,7 +1722,11 @@ MonoBehaviour:
   enemyHUD: {fileID: 946937717}
   dialogue: {fileID: 233059742}
   fightButton: {fileID: 1519539911}
-  moveButton: {fileID: 0}
+  moveButton: {fileID: 392729715}
+  moveButton1: {fileID: 449412438}
+  moveButton2: {fileID: 1506893318}
+  moveButton3: {fileID: 471988641}
+  currentMove: 0
 --- !u!1 &848610760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,7 +2008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1519539911}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &950173615
@@ -2359,7 +2399,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -356597112, guid: 5c0fa8ee7e7dd3448a0e72a15223444d, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: -356597112, guid: 5c0fa8ee7e7dd3448a0e72a15223444d, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -3549,7 +3589,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -1383309450, guid: 5c0fa8ee7e7dd3448a0e72a15223444d, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: -1383309450, guid: 5c0fa8ee7e7dd3448a0e72a15223444d, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -3561,7 +3601,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1506893321}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 749503944}
+        m_TargetAssemblyTypeName: BattleSys, Assembly-CSharp
+        m_MethodName: PlayerAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1506893321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3671,7 +3723,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -356597112, guid: 5c0fa8ee7e7dd3448a0e72a15223444d, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: -356597112, guid: 5c0fa8ee7e7dd3448a0e72a15223444d, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -4654,8 +4706,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1128529793}
   - {fileID: 1519539912}
+  - {fileID: 1128529793}
   m_Father: {fileID: 233059739}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

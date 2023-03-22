@@ -1,3 +1,4 @@
+using Mono.Cecil;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
@@ -41,4 +42,21 @@ public class Monsters
     public int SpDefense => Mathf.FloorToInt(2 * Base.SpDefense * (Level / 100f) + 5);
 
     public int Speed => Mathf.FloorToInt(2 * Base.Speed * (Level / 100f) + 5);
+    
+    public bool TakeDamage(Move move, Monsters attacker)
+    {
+        float modifiers = Random.Range(0.85f, 1f);
+        float a = (2 * attacker.Level + 10) / 250f;
+        float d = a * move.Base.power * ((float)attacker.Attack / Defense);
+        int damage = Mathf.FloorToInt(d * modifiers);
+
+        HP -= damage;
+        if (HP <= 0)
+        {
+            HP = 0;
+            return true;
+        }
+
+        return false;
+    }
 }

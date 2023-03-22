@@ -50,14 +50,30 @@ public class BattleDialogue : MonoBehaviour
         moveInfo.SetActive(enabled);
     }
 
-    public void setMoves(List<Move> moves)
+    public void UpdateMoves(Move move)
+    {
+        ppText.text = $"PP:  {move.PP}/{move.Base.PP}";
+        typeText.text = $"Type:  {move.Base.Type}";
+    }
+
+
+    public void setMoves(List<Move> moves, GameObject move1, GameObject move2, GameObject move3)
     {
         for (int i=0; i < moves.Count; i++)
         {
             if (i < moves.Count)
                 moveText[i].text = moves[i].Base.name;
             else
+            {
                 moveText[i].text = "-";
+            }
         }
+
+        if (moveText[1].text == "-")
+            move1.SetActive(false);
+        if (moveText[2].text == "-")
+            move2.SetActive(false);
+        if (moveText[3].text == "-")
+            move3.SetActive(false);
     }
 }

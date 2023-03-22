@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94dcabbc8a4d24947b917945c3339e97, type: 3}
   m_Name: Water Gun
   m_EditorClassIdentifier: 
-  <MoveName>k__BackingField: Water Gun
-  <Description>k__BackingField: The target is blasted with a forceful shot of water.
-  <Type>k__BackingField: 3
-  <Pp>k__BackingField: 25
-  <Power>k__BackingField: 40
-  <Accuracy>k__BackingField: 100
+  <moveName>k__BackingField: 
+  <description>k__BackingField: 
+  <type>k__BackingField: 0
+  <PP>k__BackingField: 25
+  <power>k__BackingField: 0
+  <accuracy>k__BackingField: 0
