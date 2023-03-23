@@ -87,14 +87,14 @@ public class BattleSys : MonoBehaviour
         dialogue.EnableDialogue(true);
         var move = player.Monster.moves[currentMove];
         yield return dialogue.TypeDialogue($"{player.Monster.Base.Name} used {move.Base.name}.");
-        
-        yield return new WaitForSeconds(2f);
 
         bool isFainted = enemy.Monster.TakeDamage(move, player.Monster);
+        enemyHUD.updateHP(enemy.Monster);
+        yield return new WaitForSeconds(2f);
 
         if (isFainted)
         {
-            yield return dialogue.TypeDialogue($"{enemy.Monster.Base.Name} fainted.");
+            yield return dialogue.TypeDialogue($"The enemy {enemy.Monster.Base.Name} fainted.");
         }
         else
         {
@@ -105,6 +105,23 @@ public class BattleSys : MonoBehaviour
     IEnumerator EnemyAttack()
     {
         state= State.EnemyMove;
+        var move = enemy.Monster.GetRandomMove();
+
+        yield return dialogue.TypeDialogue($"The enemy {enemy.Monster.Base.Name} used {move.Base.name}.");
+
+        bool isFainted = player.Monster.TakeDamage(move, enemy.Monster);
+
+        playerHUD.updateHP(player.Monster);
+        yield return new WaitForSeconds(2f);
+
+        if (isFainted)
+        {
+            yield return dialogue.TypeDialogue($"{player.Monster.Base.Name} fainted.");
+        }
+        else
+        {
+            PlayerAction();            
+        }
     }
 
     public void PlayerMove()

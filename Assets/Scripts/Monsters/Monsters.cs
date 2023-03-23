@@ -59,4 +59,10 @@ public class Monsters
 
         return false;
     }
+
+    public Move GetRandomMove()
+    {
+        int r = Random.Range(0, moves.Count);
+        return moves[r];
+    }
 }

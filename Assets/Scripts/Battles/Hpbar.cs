@@ -8,6 +8,8 @@ public class Hpbar : MonoBehaviour
     public Slider healthBar;
     public Monsters Monster;
 
+    private bool lerpingHealth = false;
+
     private void Start()
     {
         healthBar = GetComponent<Slider>();
