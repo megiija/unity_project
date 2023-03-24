@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class AdditiveScene : MonoBehaviour
 {
     [SerializeField] List<AdditiveScene> connected;
+    [SerializeField] AudioClip sceneMusic;
     public bool isLoaded { get; private set; }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -13,6 +14,7 @@ public class AdditiveScene : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log($"Entered {gameObject.name}");
+            AudioController.i.PlayMusic(sceneMusic);
 
             LoadScene();
 

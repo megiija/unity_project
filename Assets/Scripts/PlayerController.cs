@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
     public LayerMask collisionLayer;
     public LayerMask grassLayer;
     public float moveSpeed;
+
+    public event Action onEncounter;
 
     private bool isMoving;
     private Vector2 move;
@@ -19,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Update()
+    public void HandleUpdate()
     {
         if (!isMoving)
         {
@@ -77,6 +81,7 @@ public class PlayerController : MonoBehaviour
             //create  15% chance of wild encounter
             if (Random.Range(1, 101) <= 15){
                 Debug.Log("encounter!");
+                onEncounter();
             }
         }
     }

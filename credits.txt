@@ -3,3 +3,5 @@ Credits for assets:
 https://www.deviantart.com/kwharever/art/Battle-Backgrounds-v-2-FREE-TO-USE-768031287 -- backgrounds
 https://www.deviantart.com/xenophero-m/art/Pixel-House-880193197 -- modified house
 https://fonts2u.com/pokemon-pixel-font-regular.font -- font
+https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676 -- asset pack for battle animations(not implemented) and music fade
+https://downloads.khinsider.com/game-soundtracks/album/pokemon-diamond-and-pearl-super-music-collection -- music

@@ -11,6 +11,15 @@ public class InPlay : MonoBehaviour
 
     public Monsters Monster { get; set; }
 
+    Image image;
+    Vector3 originalPos;
+
+    private void Awake()
+    {
+        image = GetComponent<Image>();
+        originalPos = image.transform.localPosition;
+    }
+
     public void SetUp()
     {
         Monster = new Monsters(_base, level);
@@ -19,4 +28,19 @@ public class InPlay : MonoBehaviour
         else
             GetComponent<Image>().sprite = Monster.Base.LeftSprite;
     }
+
+    public void PlayEnterAnimation()
+    {
+        if (isPlayer)
+        {
+            //image.transform.localPosition = new Vector3;
+        }
+    }
+
+    public void PlayAttackAnimation()
+    {
+
+    }
+
+
 }

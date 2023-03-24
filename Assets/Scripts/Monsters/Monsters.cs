@@ -1,6 +1,7 @@
 using Mono.Cecil;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
@@ -64,5 +65,30 @@ public class Monsters
     {
         int r = Random.Range(0, moves.Count);
         return moves[r];
+    }
+
+    public bool CalculateRun(Monsters enemy)
+    {
+        float a = Speed;
+        float b = enemy.Speed / 4;
+
+        float f = (((a * 32) / b) + 30) % 256;
+        Debug.Log(f);
+
+        if (f >= 256)
+        {
+            return true;
+        }
+        else
+        {
+            float chance = Random.Range(0, 256);
+            Debug.Log(chance);  
+            if (f >= chance)
+                return true;
+            else
+                return false;
+        }
+
+
     }
 }

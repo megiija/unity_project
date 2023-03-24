@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Bson;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,12 +22,18 @@ public class BattleSys : MonoBehaviour
     [SerializeField] GameObject moveButton2;
     [SerializeField] GameObject moveButton3;
 
+    [SerializeField] AudioClip wildBattleMusic;
+    [SerializeField] AudioClip wildBattleVicory;
+
+    public event Action<bool> onBattleComplete;
 
     State state;
     public int currentMove = 0;
 
-    private void Start()
+    public void StartBattle()
     {
+        AudioController.i.PlayMusic(wildBattleMusic);
+
         StartCoroutine(SetBattle());
     }
 
@@ -53,7 +60,7 @@ public class BattleSys : MonoBehaviour
 
     }
 
-    private void Update()
+    public void HandleUpdate()
     {
         if (state == State.PlayerMove)
         {
@@ -95,6 +102,10 @@ public class BattleSys : MonoBehaviour
         if (isFainted)
         {
             yield return dialogue.TypeDialogue($"The enemy {enemy.Monster.Base.Name} fainted.");
+
+            AudioController.i.PlayMusic(wildBattleVicory);
+            yield return new WaitForSeconds(5f);
+            onBattleComplete(true);
         }
         else
         {
@@ -117,6 +128,9 @@ public class BattleSys : MonoBehaviour
         if (isFainted)
         {
             yield return dialogue.TypeDialogue($"{player.Monster.Base.Name} fainted.");
+
+            yield return new WaitForSeconds(2f);
+            onBattleComplete(false);
         }
         else
         {
@@ -134,6 +148,32 @@ public class BattleSys : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(moveButton);
 
+    }
+
+    public void RunAway()
+    {
+        StartCoroutine(RunAwayMessage());
+    }
+
+    IEnumerator RunAwayMessage()
+    {
+        state = State.Busy;
+        dialogue.EnableActions(false);
+        dialogue.EnableDialogue(true);
+
+        bool isRunning = player.Monster.CalculateRun(enemy.Monster);
+        if (isRunning)
+        {
+            yield return dialogue.TypeDialogue($"{player.Monster.Base.Name} ran away.");
+            yield return new WaitForSeconds(2f);
+            onBattleComplete(false);
+        }
+        else
+        {
+            yield return dialogue.TypeDialogue($"{player.Monster.Base.Name} failed to run away.");
+            yield return new WaitForSeconds(2f);
+            StartCoroutine(EnemyAttack());
+        }
     }
 
 
